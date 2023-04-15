@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "downloadjs": "^1.4.7",
+    "file-system": "^1.2.2",
+    "fontkit": "^2.0.2",
+    "pdf-lib": "^1.17.1"
+  },
+  "name": "modulo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch \"c:\\Users\\al082\\OneDrive\\Escritorio\\Servicio\\MODULO\\S_curso_ordsemipresencial.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+
+}

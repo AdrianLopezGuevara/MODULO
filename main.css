@@ -1,0 +1,42 @@
+.list_item {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.list_button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.list_button:hover {
+    background-color: #d0dff0;
+}
+
+.arrow .list_arrow {
+    transform: rotate(90deg);
+}
+
+.list_arrow {
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+.list_show {
+    list-style: none;
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px;
+    transition: height .4s;
+    height: 0;
+}
+
+.list_inside {
+    text-align: left;
+    margin-left: 20;
+}

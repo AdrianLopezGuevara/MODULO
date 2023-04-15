@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Modulo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src="F_no_adeudo.js" type="module"></script>
+</head>
+
+<body>
+    <div class="wp-block-column" style="flex-basis:100%"> <!-- NAV -->
+        <ul class="has-text-color" style="color:#46658b"> <!-- LIST -->
+            <!--------------------------------------------------------->
+            <li class="list_item list_item--click">
+                <div class="list_button list_button--click">
+                    <a class="nav_link">Formato de No Adeudo</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <ul class="list_show">
+                    <li class="list_inside">
+                        Numero de control: <input type="text" id="noControl" style="width: 150;">
+                    </li>
+                    <li class="list_inside">
+                        Nombre: <input type="text" id="nombre" style="width: 219;">
+                    </li>
+                    <li class="list_inside">
+                        Apellido paterno: <input type="text" id="apellidoPat" style="width: 163;">
+                    </li>
+                    <li class="list_inside">
+                        Apellido Materno: <input type="text" id="apellidoMat" style="width: 157;">
+                    </li>
+                    <li class="list_inside">
+                        Semestre: <input type="text" id="semestre" style="width: 20;">
+                    </li>
+                    <li class="list_inside">
+                        Carrera:<br>
+                        <input type="radio" name="carrera" id="materiales" value="Ingenieria en Materiales">
+                        <label for="materiales">Ingeniería en Materiales</label><br>
+                        <input type="radio" name="carrera" id="mecatronica" value="Ingenieria en Mecatronica">
+                        <label for="mecatronica">Ingeniería en Mecatronica</label><br>
+                        <input type="radio" name="carrera" id="sistemas" value="Ingenieria en Sistemas Computacionales">
+                        <label for="sistemas">Ingeniería en Sistemas Computacionales</label><br>
+                        <input type="radio" name="carrera" id="industrial" value="Ingenieria Industrial">
+                        <label for="industrial">Ingeniería Industrial</label><br>
+                        <input type="radio" name="carrera" id="mecanica" value="Ingenieria Mecanica">
+                        <label for="mecanica">Ingeniería Mecánica</label><br>
+                        <input type="radio" name="carrera" id="electrica" value="Ingenieria en Electrica">
+                        <label for="electrica">Ingeniería en Electrica</label><br>
+                        <input type="radio" name="carrera" id="electronica" value="Ingenieria en Electronica">
+                        <label for="electronica">Ingeniería en Electronica</label><br>
+                        <input type="radio" name="carrera" id="gestion" value="Ingenieria en Gestion Empresarial">
+                        <label for="gestion">Ingeniería en Gestion Empresarial</label><br>
+                        <input type="radio" name="carrera" id="logistica" value="Ingenieria en Logistica">
+                        <label for="logistica">Ingeniería en Logistica</label><br>
+                        <input type="radio" name="carrera" id="arquitectura" value="Arquitectura">
+                        <label for="arquitectura">Arquitectura</label><br>
+                        <br>
+                    </li>
+                    <li class="list_inside">
+                        Laboratorio de NO Adeudo: <br>
+                        <input type="radio" name="laboratorio" id="sistemas" value="Laboratorio de Redes">
+                        <label for="sistemas">Laboratorio de Redes</label><br>
+                        <input type="radio" name="laboratorio" id="electrica" value="Laboratorio de Electrica">
+                        <label for="sistemas">Laboratorio de Electrica</label><br>
+                        <input type="radio" name="laboratorio" id="electronica" value="Laboratorio de Electronica">
+                        <label for="sistemas">Laboratorio de Electronica</label><br>
+                        <input type="radio" name="laboratorio" id="materiales" value="Laboratorio de Materiales">
+                        <label for="sistemas">Laboratorio de Materiales</label><br>
+
+                    </li>
+
+                    <button type="submit" class="list_inside" onclick="formato_NO_ADEUDO()">Generar PDF</button>
+                </ul>
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Formato de Requisitos para Carta de Presentación a Empresa</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Solicitud a Comité Académico</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Solicitud del estudiante para la Acreditación de Residencia Profesional</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Solicitud de Curso Ordinario Semipresencial</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Solicitud de Análisis de Convalidación</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Solicitud de Baja Temporal y Definitiva</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Solicitud de Participación en el Programa de Movilidad Estudiantil</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Solicitud de Resolución de Equivalencia de Estudios</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <li class="list_item">
+                <div class="list_button">
+                    <a class="nav_link">Solicitud de Traslado</a>
+                    <img src="css elements/bx-chevron-right.svg" class="list_arrow">
+                </div>
+                <!-- Aqui va ul-->
+            </li>
+            <!-------------------------------------------------------->
+        </ul>
+    </div>
+    <!------------------------------------------- Scripts ---------------------------------------------->
+    <script>
+        let lisElements = document.querySelectorAll('.list_button--click');
+        lisElements.forEach(lisElement => {
+            lisElement.addEventListener('click', () => {
+                lisElement.classList.toggle('arrow')
+
+                let height = 0;
+                let menu = lisElement.nextElementSibling;
+                if (menu.clientHeight == "0") {
+                    height = menu.scrollHeight;
+                }
+
+                menu.style.height = height + "px";
+            })
+        });
+    </script>
+    
+    <!-------------------------------------------------------------------------------------------------->
+</body>
+
+</html>
