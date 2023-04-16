@@ -33,7 +33,6 @@ export async function sol_Curso_Ordsemipresencial() {
         y: yfecha,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     dia = form.createTextField("dia");
     dia.setText(vdia);
@@ -91,7 +90,6 @@ export async function sol_Curso_Ordsemipresencial() {
         y: 596.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
 
     var Font = await pdfDoc.embedFont(Montserrat);
@@ -100,133 +98,114 @@ export async function sol_Curso_Ordsemipresencial() {
         y: 579.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("Por medio", {
         x: 71,
         y: 548.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("del presente me", {
         x: 138,
         y: 548.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("dirijo a", {
         x: 240,
         y: 548.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("usted, para", {
         x: 284.2,
         y: 548.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("solicitar que", {
         x: 355,
         y: 548.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("realice las", {
         x: 432,
         y: 548.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("gestiones", {
         x: 495,
         y: 548.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("pertinentes", {
         x: 71,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("ante", {
         x: 146.5,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("el", {
         x: 179.5,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("departamento", {
         x: 195.5,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("correspondiente,", {
         x: 289,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("para", {
         x: 397,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("que", {
         x: 430,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("se", {
         x: 459,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("me", {
         x: 477.5,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("autorice", {
         x: 503,
         y: 526,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("llevar", {
         x: 71,
         y: 504.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     var Font = await pdfDoc.embedFont(MontserratBoldN);
     page.drawText("curso", {
@@ -234,21 +213,18 @@ export async function sol_Curso_Ordsemipresencial() {
         y: 504.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("ordinario", {
         x: 182,
         y: 504.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("semipresencial", {
         x: 261.5,
         y: 504.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     var Font = await pdfDoc.embedFont(Montserrat);
     page.drawText("de", {
@@ -256,38 +232,34 @@ export async function sol_Curso_Ordsemipresencial() {
         y: 504.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("la", {
         x: 416.4,
         y: 504.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("asignatura", {
         x: 448.5,
         y: 504.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("de:", {
         x: 535,
         y: 504.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Asignatura */
     const asignatura = form.createTextField("asignatura");
-    asignatura.setText("Calculo Diferencial");
+    asignatura.setText("Calculo g Diferencial");
     asignatura.setAlignment(TextAlignment.Center);
     asignatura.addToPage(page, {
         x: 71,
         y: 482.5,
         width: 482,
-        height: 12,
+        height: 17,
         borderWidth: 0,
     });
     asignatura.setFontSize(12);
@@ -297,34 +269,51 @@ export async function sol_Curso_Ordsemipresencial() {
         y: 460.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
+    page.drawLine({
+        start: {
+            x: 71,
+            y: 482.5,
+        },
+        end: {
+            x: 553,
+            y: 482.5,
+        }
+    })
     /* Clave */
     const clave = form.createTextField("clave");
     clave.setText("123456");
     clave.setAlignment(TextAlignment.Center);
     clave.addToPage(page, {
         x: 134,
-        y: 460.5,
+        y: 460.7,
         width: 59,
         height: 12,
         borderWidth: 0,
-    })
+    });
     clave.setFontSize(12);
     clave.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 134,
+            y: 460.5,
+        },
+        end: {
+            x: 192,
+            y: 460.5,
+        }
+    })
     page.drawText(", en", {
         x: 193.5,
         y: 460.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("el grupo:", {
         x: 218.5,
         y: 460.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Grupo */
     const grupo = form.createTextField("grupo");
@@ -332,26 +321,34 @@ export async function sol_Curso_Ordsemipresencial() {
     grupo.setAlignment(TextAlignment.Center);
     grupo.addToPage(page, {
         x: 275.5,
-        y: 460.5,
+        y: 460.7,
         width: 59,
         height: 12,
         borderWidth: 0,
-    })
+    });
     grupo.setFontSize(12);
     grupo.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 275.5,
+            y: 460.5,
+        },
+        end: {
+            x: 334.5,
+            y: 460.5,
+        }
+    })
     page.drawText(", durante", {
         x: 335,
         y: 460.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("el periodo", {
         x: 393,
         y: 460.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Periodo */
     const periodo = form.createTextField("periodo");
@@ -371,15 +368,25 @@ export async function sol_Curso_Ordsemipresencial() {
         y: 438.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Año */
+    anio = form.createTextField("anio_Curso");
+    anio.setText("2024");
+    anio.setAlignment(TextAlignment.Center);
+    anio.addToPage(page, {
+        x: 118,
+        y: 438.2,
+        width: 42,
+        height: 12,
+        borderWidth: 0,
+    });
+    anio.setFontSize(12);
+    anio.enableReadOnly();
     page.drawText(".", {
         x: 160.5,
         y: 438.2,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
 
     page.drawText("Esta asignatura la imparte el (la) profesor(a):", {
@@ -387,209 +394,250 @@ export async function sol_Curso_Ordsemipresencial() {
         y: 394.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Profesor */
+    const profesor = form.createTextField("profesor");
+    profesor.setText("Carlos Gerardo Hernandez Solis");
+    profesor.setAlignment(TextAlignment.Center);
+    profesor.addToPage(page, {
+        x: 338.5,
+        y: 394.5,
+        width: 203,
+        height: 12,
+        borderWidth: 0,
+    });
+    profesor.enableReadOnly();
     page.drawText("En", {
         x: 71,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("espera", {
         x: 94.5,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("que", {
         x: 142,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("dicha", {
         x: 173,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("solicitud", {
         x: 213.7,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("sea", {
         x: 272,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("aceptada", {
         x: 299.5,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("me", {
         x: 363.5,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("despido", {
         x: 390.5,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("quedando", {
         x: 446.5,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("a", {
         x: 516,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("sus", {
         x: 530.5,
         y: 363,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("órdenes.", {
         x: 71,
         y: 348,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("Atentamente", {
         x: 270.2,
         y: 333.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("Nombre y Firma", {
         x: 261.5,
         y: 286,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("Estudiante", {
         x: 71,
         y: 249.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("del", {
         x: 141.5,
         y: 249.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Semestre */
+    const semestre = form.createTextField("Semestre");
+    semestre.setText("8");
+    semestre.setAlignment(TextAlignment.Center);
+    semestre.addToPage(page, {
+        x: 165.5,
+        y: 249.5,
+        width: 29,
+        height: 12,
+        borderWidth: 0,
+    });
+    semestre.setFontSize(12);
+    semestre.enableReadOnly();
     page.drawText("semestre", {
         x: 200,
         y: 249.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("de", {
         x: 261,
         y: 249.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("la", {
         x: 281.5,
         y: 249.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("carrera", {
         x: 296.5,
         y: 249.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("de", {
         x: 344,
         y: 249.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Carrera */
+    const carrera = form.createTextField("Carrera");
+    carrera.setText("Ingenieria en sistemas computacionales");
+    carrera.setAlignment(TextAlignment.Center);
+    carrera.addToPage(page, {
+        x: 365,
+        y: 249.5,
+        width: 185,
+        height: 12,
+        borderWidth: 0,
+    });
+    carrera.enableReadOnly();
     page.drawText("con numero de control", {
         x: 71,
         y: 227.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Numero de control */
+    const noControl = form.createTextField("noControl");
+    noControl.setText("19141166");
+    noControl.setAlignment(TextAlignment.Center);
+    noControl.addToPage(page, {
+        x: 213,
+        y: 227.5,
+        width: 89,
+        height: 12,
+        borderWidth: 0,
+    });
+    noControl.setFontSize(12);
+    noControl.enableReadOnly();
     page.drawText(".", {
         x: 302.5,
         y: 227.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("Correo Electrónico:", {
         x: 71,
         y: 205.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Correo */
+    const correo = form.createTextField("Correo");
+    correo.setText("l19141166@queretaro.tecnm.mx");
+    correo.setAlignment(TextAlignment.Center);
+    correo.addToPage(page, {
+        x: 189,
+        y: 205.5,
+        width: 178,
+        height: 12,
+        borderWidth: 0,
+    });
+    correo.enableReadOnly();
+
     page.drawText(".", {
         x: 368.5,
         y: 205.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     page.drawText("Teléfono:", {
         x: 71,
         y: 183.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     /* Telefono */
+    const telefono = form.createTextField("Telefono");
+    telefono.setText("4421571994");
+    telefono.setAlignment(TextAlignment.Center);
+    telefono.addToPage(page, {
+        x: 130,
+        y: 183.5,
+        width: 219,
+        height: 12,
+        borderWidth: 0,
+    });
+    telefono.setFontSize(12);
+    telefono.enableReadOnly();
     page.drawText(".", {
         x: 350.5,
         y: 183.5,
         size: 12,
         font: Font,
-        color: rgb(1, 0, 0),
     });
 
     var Font = await pdfDoc.embedFont(MontserratBold);
@@ -598,7 +646,6 @@ export async function sol_Curso_Ordsemipresencial() {
         y: 151.5,
         size: 10,
         font: Font,
-        color: rgb(1, 0, 0),
     });
     var Font = await pdfDoc.embedFont(Montserrat);
     page.drawText(
@@ -608,7 +655,6 @@ export async function sol_Curso_Ordsemipresencial() {
             y: 151.5,
             size: 10,
             font: Font,
-            color: rgb(1, 0, 0),
         }
     );
     page.drawText(
@@ -620,7 +666,6 @@ export async function sol_Curso_Ordsemipresencial() {
             maxWidth: 500,
             lineHeight: 12.1,
             font: Font,
-            color: rgb(1, 0, 0),
         }
     );
 
