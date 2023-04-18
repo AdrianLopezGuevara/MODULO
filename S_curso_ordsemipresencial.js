@@ -257,7 +257,7 @@ export async function sol_Curso_Ordsemipresencial() {
     asignatura.setAlignment(TextAlignment.Center);
     asignatura.addToPage(page, {
         x: 71,
-        y: 482.5,
+        y: 482.7,
         width: 482,
         height: 17,
         borderWidth: 0,
@@ -278,8 +278,8 @@ export async function sol_Curso_Ordsemipresencial() {
         end: {
             x: 553,
             y: 482.5,
-        }
-    })
+        },
+    });
     /* Clave */
     const clave = form.createTextField("clave");
     clave.setText("123456");
@@ -301,8 +301,8 @@ export async function sol_Curso_Ordsemipresencial() {
         end: {
             x: 192,
             y: 460.5,
-        }
-    })
+        },
+    });
     page.drawText(", en", {
         x: 193.5,
         y: 460.5,
@@ -336,8 +336,8 @@ export async function sol_Curso_Ordsemipresencial() {
         end: {
             x: 334.5,
             y: 460.5,
-        }
-    })
+        },
+    });
     page.drawText(", durante", {
         x: 335,
         y: 460.5,
@@ -356,13 +356,23 @@ export async function sol_Curso_Ordsemipresencial() {
     periodo.setAlignment(TextAlignment.Center);
     periodo.addToPage(page, {
         x: 457.5,
-        y: 460.5,
+        y: 460.7,
         width: 95,
         height: 17,
         borderWidth: 0,
     });
     periodo.setFontSize(11);
     periodo.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 457.5,
+            y: 460.5,
+        },
+        end: {
+            x: 552.5,
+            y: 460.5,
+        }
+    });
     page.drawText("del año", {
         x: 71,
         y: 438.2,
@@ -375,13 +385,23 @@ export async function sol_Curso_Ordsemipresencial() {
     anio.setAlignment(TextAlignment.Center);
     anio.addToPage(page, {
         x: 118,
-        y: 438.2,
+        y: 438.7,
         width: 42,
         height: 12,
         borderWidth: 0,
     });
     anio.setFontSize(12);
     anio.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 118,
+            y: 438.2,
+        },
+        end: {
+            x: 160,
+            y: 438.2,
+        }
+    });
     page.drawText(".", {
         x: 160.5,
         y: 438.2,
@@ -401,12 +421,22 @@ export async function sol_Curso_Ordsemipresencial() {
     profesor.setAlignment(TextAlignment.Center);
     profesor.addToPage(page, {
         x: 338.5,
-        y: 394.5,
+        y: 395,
         width: 203,
         height: 12,
         borderWidth: 0,
     });
     profesor.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 338.5,
+            y: 394.5,
+        },
+        end: {
+            x: 538.5,
+            y: 394.5,
+        }
+    });
     page.drawText("En", {
         x: 71,
         y: 363,
@@ -491,6 +521,16 @@ export async function sol_Curso_Ordsemipresencial() {
         size: 12,
         font: Font,
     });
+    page.drawLine({
+        start: {
+            x: 220.8,
+            y: 300,
+        },
+        end: {
+            x: 400.8,
+            y: 300,
+        }
+    });
     page.drawText("Nombre y Firma", {
         x: 261.5,
         y: 286,
@@ -515,13 +555,23 @@ export async function sol_Curso_Ordsemipresencial() {
     semestre.setAlignment(TextAlignment.Center);
     semestre.addToPage(page, {
         x: 165.5,
-        y: 249.5,
+        y: 250,
         width: 29,
         height: 12,
         borderWidth: 0,
     });
     semestre.setFontSize(12);
     semestre.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 165.5,
+            y: 249.5,
+        },
+        end: {
+            x: 194.5,
+            y: 249.5,
+        }
+    });
     page.drawText("semestre", {
         x: 200,
         y: 249.5,
@@ -558,12 +608,22 @@ export async function sol_Curso_Ordsemipresencial() {
     carrera.setAlignment(TextAlignment.Center);
     carrera.addToPage(page, {
         x: 365,
-        y: 249.5,
+        y: 250,
         width: 185,
         height: 12,
         borderWidth: 0,
     });
     carrera.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 365,
+            y: 249.5,
+        },
+        end: {
+            x: 550,
+            y: 249.5,
+        }
+    });
     page.drawText("con numero de control", {
         x: 71,
         y: 227.5,
@@ -576,13 +636,23 @@ export async function sol_Curso_Ordsemipresencial() {
     noControl.setAlignment(TextAlignment.Center);
     noControl.addToPage(page, {
         x: 213,
-        y: 227.5,
+        y: 228,
         width: 89,
         height: 12,
         borderWidth: 0,
     });
     noControl.setFontSize(12);
     noControl.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 213,
+            y: 227.5,
+        },
+        end: {
+            x: 302,
+            y: 227.5,
+        }
+    });
     page.drawText(".", {
         x: 302.5,
         y: 227.5,
@@ -601,13 +671,22 @@ export async function sol_Curso_Ordsemipresencial() {
     correo.setAlignment(TextAlignment.Center);
     correo.addToPage(page, {
         x: 189,
-        y: 205.5,
+        y: 206,
         width: 178,
         height: 12,
         borderWidth: 0,
     });
     correo.enableReadOnly();
-
+    page.drawLine({
+        start: {
+            x: 189,
+            y: 205.5,
+        },
+        end: {
+            x: 367,
+            y: 205.5,
+        }
+    });
     page.drawText(".", {
         x: 368.5,
         y: 205.5,
@@ -626,13 +705,23 @@ export async function sol_Curso_Ordsemipresencial() {
     telefono.setAlignment(TextAlignment.Center);
     telefono.addToPage(page, {
         x: 130,
-        y: 183.5,
+        y: 184,
         width: 219,
         height: 12,
         borderWidth: 0,
     });
     telefono.setFontSize(12);
     telefono.enableReadOnly();
+    page.drawLine({
+        start: {
+            x: 130,
+            y: 183.5,
+        },
+        end: {
+            x: 349,
+            y: 183.5,
+        }
+    });
     page.drawText(".", {
         x: 350.5,
         y: 183.5,
