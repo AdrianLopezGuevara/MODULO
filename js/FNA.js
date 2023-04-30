@@ -1,19 +1,18 @@
-/* import { PDFDocument, rgb, TextAlignment } from "pdf-lib";
-import fontkit from "@pdf-lib/fontkit"; */
-import fs from "fs";
+const { PDFDocument, TextAlignment } = PDFLib
 import { autoFecha, vanio, vdia, vmes, nmes } from "./dev/Fecha.js";
-import { Montserrat, MontserratBold } from "./dev/Fonts.js";
+import { Montserrat, MontserratBold } from "./fonts.js";
 
-var dia; //Variable dia del formulario
-var mes; //Variables mes del formulario
-var anio; //Variable año del formulario
+let dia; //Variable dia del formulario
+let mes; //Variables mes del formulario
+let anio; //Variable año del formulario
 
 
 export async function formato_NO_ADEUDO(_noControl, _nombre, _apellidoPat, _apellidoMat, _semestre, _carrera) {
     /* Import template */
-    const template = fs.readFileSync("./pdf/Formato.pdf");
+    const template = "./pdf/Formato.pdf";
+    const formPdfBytes = await fetch(template).then(res => res.arrayBuffer())
 
-    const pdfDoc = await PDFDocument.load(template);
+    const pdfDoc = await PDFDocument.load(formPdfBytes);
     pdfDoc.registerFontkit(fontkit);
 
     const pages = pdfDoc.getPages();
@@ -468,7 +467,6 @@ export async function formato_NO_ADEUDO(_noControl, _nombre, _apellidoPat, _apel
     });
 
     const pdfBytes = await pdfDoc.save();
-    fs.writeFileSync("./output/Formato_NO_ADEUDO.pdf", pdfBytes);
+    download(pdfBytes, "Formato de No Adeudo.pdf", "application/pdf");
 }
 
-/* formato_NO_ADEUDO(); */

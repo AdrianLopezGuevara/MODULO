@@ -1,10 +1,16 @@
 /*Custom properties*/
 
-/* :root {
-    
-} */
+:root {
+    --principal: #1d3660;
+    --textColor: #46658b;
+}
 
 /*Globales*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -20,7 +26,91 @@ body {
     font-size: 16px;
 }
 
-.container{
-    max-width: 50rem;
+.container {
+    max-width: 90rem;
     margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+}
+
+.header {
+    background-color: var(--principal);
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+/*  */
+
+.list__item {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.list__button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.list__button:hover {
+    background-color: #d0dff0;
+}
+
+.arrow .list__arrow {
+    transform: rotate(90deg);
+}
+
+.list__arrow {
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+.list__show {
+    list-style: none;
+    width: 50%;
+    margin: 0 auto;
+    transition: height .3s;
+    height: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: .5rem 0;
+}
+
+.list__inside {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.list__inside--text {
+    flex-direction: row;
+}
+
+.btn {
+    width: 10rem;
+    padding: .5rem;
+    text-align: center;
+    background-color: var(--principal);
+    color: white;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
