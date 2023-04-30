@@ -7,124 +7,21 @@
     <title>Modulo</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/styles.css'>
-    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.js"></script>
+    <!-- <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.js"></script>
     <script src="https://unpkg.com/downloadjs"></script>
-    <script src="https://unpkg.com/@pdf-lib/fontkit"></script>
+    <script src="https://unpkg.com/@pdf-lib/fontkit"></script> -->
 </head>
 
 <body>
-    <div class="wp-block-column" style="flex-basis:100%"> <!-- NAV -->
-        <ul class="has-text-color" style="color:#46658b"> <!-- LIST -->
-            <!--------------------------------------------------------->
-            <li class="list__item list__item--click">
-                <div class="list__button list__button--click">
-                    <a class="nav__link">Formato de No Adeudo</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <ul class="list__show">
-                    <li class="list__inside">
-                        Numero de control: <input type="text" id="noControl" style="width: 150;">
-                    </li>
-                    
-                    <li class="list__inside">
-                        Laboratorio de NO Adeudo: <br>
-                        <input type="radio" name="laboratorio" id="sistemas" value="Laboratorio de Redes">
-                        <label for="sistemas">Laboratorio de Redes</label><br>
-                        <input type="radio" name="laboratorio" id="electrica" value="Laboratorio de Electrica">
-                        <label for="sistemas">Laboratorio de Electrica</label><br>
-                        <input type="radio" name="laboratorio" id="electronica" value="Laboratorio de Electronica">
-                        <label for="sistemas">Laboratorio de Electronica</label><br>
-                        <input type="radio" name="laboratorio" id="materiales" value="Laboratorio de Materiales">
-                        <label for="sistemas">Laboratorio de Materiales</label><br>
-
-                    </li>
-
-                    <button type="submit" class="list__inside" onclick="Formato_noadeudo()">Generar PDF</button>
-                </ul>
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Formato de Requisitos para Carta de Presentación a Empresa</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Solicitud a Comité Académico</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Solicitud del estudiante para la Acreditación de Residencia Profesional</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Solicitud de Curso Ordinario Semipresencial</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Solicitud de Análisis de Convalidación</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Solicitud de Baja Temporal y Definitiva</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Solicitud de Participación en el Programa de Movilidad Estudiantil</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Solicitud de Resolución de Equivalencia de Estudios</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <a class="nav__link">Solicitud de Traslado</a>
-                    <img src="css elements/bx-chevron-right.svg" class="list__arrow">
-                </div>
-                <!-- Aqui va ul-->
-            </li>
-            <!-------------------------------------------------------->
-        </ul>
+    <div class="container">
+        <form action="./php/functions.php" method="get" class="form">
+            <label for="noControl">Numero de Control: </label>
+            <input type="text" name="noControl" id="noControl">
+            <input type="submit">
+        </form>
     </div>
     <!------------------------------------------- Scripts ---------------------------------------------->
-    <script>
-        let lisElements = document.querySelectorAll('.list__button--click');
-        lisElements.forEach(lisElement => {
-            lisElement.addEventListener('click', () => {
-                lisElement.classList.toggle('arrow')
-
-                let height = 0;
-                let menu = lisElement.nextElementSibling;
-                if (menu.clientHeight == "0") {
-                    height = menu.scrollHeight;
-                }
-
-                menu.style.height = height + "px";
-            })
-        });
-    </script>
+    <script src="./js/scripts.js"></script>
     <!-------------------------------------------------------------------------------------------------->
 </body>
 
