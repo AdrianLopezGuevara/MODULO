@@ -7,7 +7,7 @@ let mes; //Variables mes del formulario
 let anio; //Variable año del formulario
 
 
-export async function formato_NO_ADEUDO(_noControl, _nombre, _apellidoPat, _apellidoMat, _semestre, _carrera) {
+export async function formato_NO_ADEUDO(_noControl, _nombre, _apellidoPat, _apellidoMat, _semestre, _carrera, _lab) {
     /* Import template */
     const template = "./pdf/Formato.pdf";
     const formPdfBytes = await fetch(template).then(res => res.arrayBuffer())
@@ -381,7 +381,7 @@ export async function formato_NO_ADEUDO(_noControl, _nombre, _apellidoPat, _apel
     txtY = 287.1;
     recW = 182;
     const lab = form.createTextField("lab");
-    lab.setText("Laboratorio de Computo");
+    lab.setText(_lab);
     lab.setAlignment(TextAlignment.Center);
     lab.addToPage(page, {
         x: 136,
