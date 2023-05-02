@@ -4,31 +4,28 @@ import fs from "fs";
 import { autoFecha, vanio, vdia, vmes, nmes } from "./Fecha.js";
 import { Montserrat, MontserratBold } from "./Fonts.js";
 
-/* Variables */
-var form; //Inicializa el formulario que se ocupa para el llenado de campos
-var template; //Da la ruta de la plantilla del formato
-var pdfDoc; //Inicializa el documento pdf que se crea
-var dia; //Variable dia del formulario
-var mes; //Variables mes del formulario
-var anio; //Variable año del formulario
-var noControl; //Variable numero de control del formulario
-var nombre; //Variable nombre del formulario
-var semestre; //Variable semestre del formulario
-var carrera; //Variable carrera del formulario
+/* Inlcudes */
+const template = fs.readFileSync("./pdf/Formato.pdf");
+const pdfDoc = await PDFDocument.load(template);
+pdfDoc.registerFontkit(fontkit);
+const pages = pdfDoc.getPages();
+const page = pages[0];
+const form = pdfDoc.getForm();
 
-export async function formato_NO_ADEUDO() {
-  /* Import template */
-  template = fs.readFileSync("./pdf/Formato.pdf");
+const dia = form.createTextField("dia");
+const mes = form.createTextField("mes");
+const anio = form.createTextField("anio");
 
-  pdfDoc = await PDFDocument.load(template);
-  pdfDoc.registerFontkit(fontkit);
+/* Function variables */
+const noControl = form.createTextField("noControl");
+const nombre = form.createTextField("nombre");
+const semestre = form.createTextField("semestre");
+const carrera = form.createTextField("carrera");
 
-  const pages = pdfDoc.getPages();
-  const page = pages[0];
+const lab = form.createTextField("lab");
 
-  form = pdfDoc.getForm();
-
-  var Font = await pdfDoc.embedFont(Montserrat);
+export async function formato_NO_ADEUDO(_noControl, _nombre, _semestre, _carrera, _lab) {
+  let Font = await pdfDoc.embedFont(Montserrat);
 
   page.drawText("División de Estudios Profesionales", {
     x: 177,
@@ -44,16 +41,16 @@ export async function formato_NO_ADEUDO() {
   });
 
   /* Lugar y fecha */
-  const yfecha = 614.7; 
+  const yfecha = 614.7;
   const yForm = yfecha - 6.2;
-  var [X, Wmes] = autoFecha();
+  let [X, Wmes] = autoFecha();
   page.drawText("Querétaro, Qro.,    a", {
     x: X,
     y: yfecha,
     size: 10,
     font: Font,
   });
-  dia = form.createTextField("dia");
+
   dia.setText(vdia);
   dia.setAlignment(TextAlignment.Center);
   dia.addToPage(page, {
@@ -71,7 +68,7 @@ export async function formato_NO_ADEUDO() {
     size: 10,
     font: Font,
   });
-  mes = form.createTextField("mes");
+
   //mes.setText("septiembre");
   mes.setText(vmes[nmes]);
   mes.setAlignment(TextAlignment.Center);
@@ -90,7 +87,7 @@ export async function formato_NO_ADEUDO() {
     size: 10,
     font: Font,
   });
-  anio = form.createTextField("anio");
+
   anio.setText(vanio);
   anio.setAlignment(TextAlignment.Center);
   anio.addToPage(page, {
@@ -134,8 +131,8 @@ export async function formato_NO_ADEUDO() {
     size: 10,
     font: Font,
   });
-  noControl = form.createTextField("noControl");
-  noControl.setText("19141166");
+
+  noControl.setText(_noControl);
   noControl.setAlignment(TextAlignment.Center);
   noControl.addToPage(page, {
     x: 133.9,
@@ -161,8 +158,8 @@ export async function formato_NO_ADEUDO() {
     size: 10,
     font: Font,
   });
-  nombre = form.createTextField("nombre");
-  nombre.setText("Adrian López Guevara");
+
+  nombre.setText(_nombre);
   nombre.setAlignment(TextAlignment.Center);
   nombre.addToPage(page, {
     x: 268.5,
@@ -188,8 +185,8 @@ export async function formato_NO_ADEUDO() {
     size: 10,
     font: Font,
   });
-  semestre = form.createTextField("semestre");
-  semestre.setText("8");
+
+  semestre.setText(_semestre);
   semestre.setAlignment(TextAlignment.Center);
   semestre.addToPage(page, {
     x: 133.9,
@@ -215,8 +212,8 @@ export async function formato_NO_ADEUDO() {
     size: 10,
     font: Font,
   });
-  carrera = form.createTextField("carrera");
-  carrera.setText("Ingenieria en Sistemas Computacionales");
+
+  carrera.setText(_carrera);
   carrera.setAlignment(TextAlignment.Center);
   carrera.addToPage(page, {
     x: 268.5,
@@ -250,10 +247,10 @@ export async function formato_NO_ADEUDO() {
   });
   /* Cuadros dptos */
   Font = await pdfDoc.embedFont(MontserratBold);
-  var txtY = 465.2;
-  var recY = 463;
-  var recW = 169;
-  var recH = 12;
+  let txtY = 465.2;
+  let recY = 463;
+  let recW = 169;
+  let recH = 12;
   page.drawRectangle({
     x: 56,
     y: recY,
@@ -389,8 +386,8 @@ export async function formato_NO_ADEUDO() {
   recH = 18;
   txtY = 287.1;
   recW = 182;
-  const lab = form.createTextField("lab");
-  lab.setText("Laboratorio de Computo");
+
+  lab.setText(_lab);
   lab.setAlignment(TextAlignment.Center);
   lab.addToPage(page, {
     x: 136,
@@ -478,4 +475,4 @@ export async function formato_NO_ADEUDO() {
   const pdfBytes = await pdfDoc.save();
   fs.writeFileSync("./output/Formato_NO_ADEUDO.pdf", pdfBytes);
 }
-//formato_NO_ADEUDO();
+formato_NO_ADEUDO("19141166", "Adrian López Guevara","8", "Ingenieria en Sistemas Computacionales", "Laboratorio de Computo");

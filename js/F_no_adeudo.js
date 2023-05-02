@@ -1,38 +1,30 @@
 const { PDFDocument, TextAlignment } = PDFLib
+import { autoFecha, vanio, vdia, vmes, nmes } from "./dev/Fecha.js";
+import { Montserrat, MontserratBold } from "./Fonts.js";
 
-async function Formato_noadeudo() {
-    /* Variables */
-    const date = new Date();
-    var vdia = date.getDate().toString();
-    var nmes = date.getMonth();
-    var vmes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-    var vanio = date.getFullYear().toString();
-    var vnoControl = document.getElementById("noControl").value;
-    var vnombre = document.getElementById("nombre").value;
-    var vapellidoPat = document.getElementById("apellidoPat").value;
-    var vapellidoMat = document.getElementById("apellidoMat").value;
-    var vsemestre = document.getElementById("semestre").value;
-    var vcarrera = document.querySelector('input[name="carrera"]:checked').value;
-    var vlaboratorio = document.querySelector('input[name="laboratorio"]:checked').value;
+/* Inlcudes */
+const templateURL = "./pdf/Formato.pdf";
+const template = await fetch(templateURL).then(res => res.arrayBuffer())
+const pdfDoc = await PDFDocument.load(template);
+pdfDoc.registerFontkit(fontkit);
+const pages = pdfDoc.getPages();
+const page = pages[0];
+const form = pdfDoc.getForm();
 
-    /* Import Fonts */
-    const MontserratURL = "./fonts/Montserrat/static/Montserrat-Regular.ttf";
-    const MontserratBoldURL = "./fonts/Montserrat/static/Montserrat-BoldItalic.ttf";
-    const Montserrat = await fetch(MontserratURL).then(res => res.arrayBuffer())
-    const MontserratBold = await fetch(MontserratBoldURL).then(res => res.arrayBuffer())
-    /* Import template */
-    const template = "./pdf/Formato.pdf";
-    const formPdfBytes = await fetch(template).then(res => res.arrayBuffer())
+const dia = form.createTextField("dia");
+const mes = form.createTextField("mes");
+const anio = form.createTextField("anio");
 
-    const pdfDoc = await PDFDocument.load(formPdfBytes);
-    pdfDoc.registerFontkit(fontkit);
+/* Function variables */
+const noControl = form.createTextField("noControl");
+const nombre = form.createTextField("nombre");
+const semestre = form.createTextField("semestre");
+const carrera = form.createTextField("carrera");
 
-    const pages = pdfDoc.getPages();
-    const page = pages[0];
+const lab = form.createTextField("lab");
 
-    const form = pdfDoc.getForm(); //Se define tipo form
-
-    var Font = await pdfDoc.embedFont(Montserrat);
+export async function formato_NO_ADEUDO(_noControl, _nombre, _semestre, _carrera, _lab) {
+    let Font = await pdfDoc.embedFont(Montserrat);
 
     page.drawText("División de Estudios Profesionales", {
         x: 177,
@@ -49,18 +41,20 @@ async function Formato_noadeudo() {
 
     /* Lugar y fecha */
     const yfecha = 614.7;
+    const yForm = yfecha - 6.2;
+    let [X, Wmes] = autoFecha();
     page.drawText("Querétaro, Qro.,    a", {
-        x: 269.3,
+        x: X,
         y: yfecha,
         size: 10,
         font: Font,
     });
-    const dia = form.createTextField("dia"); //Se crea el txtField de dia
+
     dia.setText(vdia);
     dia.setAlignment(TextAlignment.Center);
     dia.addToPage(page, {
-        x: 370,
-        y: 608,
+        x: X + 100.7,
+        y: yForm,
         width: 20,
         height: 20,
         borderWidth: 0,
@@ -68,18 +62,19 @@ async function Formato_noadeudo() {
     dia.setFontSize(10);
     dia.enableReadOnly();
     page.drawText("de", {
-        x: 397,
+        x: X + 127.7,
         y: yfecha,
         size: 10,
         font: Font,
     });
-    const mes = form.createTextField("mes"); //Se crea el txtField de mes
+
+    //mes.setText("septiembre");
     mes.setText(vmes[nmes]);
     mes.setAlignment(TextAlignment.Center);
     mes.addToPage(page, {
-        x: 413,
-        y: 608,
-        width: 84,
+        x: X + 148,
+        y: yForm,
+        width: Wmes,
         height: 20,
         borderWidth: 0,
     });
@@ -91,12 +86,12 @@ async function Formato_noadeudo() {
         size: 10,
         font: Font,
     });
-    const anio = form.createTextField("anio"); //Se crea el txtField de año
+
     anio.setText(vanio);
     anio.setAlignment(TextAlignment.Center);
     anio.addToPage(page, {
         x: 518,
-        y: 607.5,
+        y: yForm,
         width: 37,
         height: 20,
         borderWidth: 0,
@@ -135,8 +130,8 @@ async function Formato_noadeudo() {
         size: 10,
         font: Font,
     });
-    const noControl = form.createTextField("noControl"); //Se crea el txtField de numero de control
-    noControl.setText(vnoControl);
+
+    noControl.setText(_noControl);
     noControl.setAlignment(TextAlignment.Center);
     noControl.addToPage(page, {
         x: 133.9,
@@ -162,8 +157,8 @@ async function Formato_noadeudo() {
         size: 10,
         font: Font,
     });
-    const nombre = form.createTextField("nombre"); //Se crea el txtField de nombre
-    nombre.setText(vnombre + " " + vapellidoPat + " " + vapellidoMat);
+
+    nombre.setText(_nombre);
     nombre.setAlignment(TextAlignment.Center);
     nombre.addToPage(page, {
         x: 268.5,
@@ -189,17 +184,17 @@ async function Formato_noadeudo() {
         size: 10,
         font: Font,
     });
-    const semetre = form.createTextField("semestre"); //Se crea el txtField de semestre
-    semetre.setText(vsemestre);
-    semetre.setAlignment(TextAlignment.Center);
-    semetre.addToPage(page, {
+
+    semestre.setText(_semestre);
+    semestre.setAlignment(TextAlignment.Center);
+    semestre.addToPage(page, {
         x: 133.9,
         y: 523.5,
         width: 39,
         height: 21,
     });
-    semetre.setFontSize(10);
-    semetre.enableReadOnly();
+    semestre.setFontSize(10);
+    semestre.enableReadOnly();
 
     /* Carrera */
     page.drawRectangle({
@@ -216,8 +211,8 @@ async function Formato_noadeudo() {
         size: 10,
         font: Font,
     });
-    const carrera = form.createTextField("carrera"); //Se crea el txtField de carrera
-    carrera.setText(vcarrera);
+
+    carrera.setText(_carrera);
     carrera.setAlignment(TextAlignment.Center);
     carrera.addToPage(page, {
         x: 268.5,
@@ -227,7 +222,6 @@ async function Formato_noadeudo() {
     });
     carrera.setFontSize(10);
     carrera.enableReadOnly();
-
 
     form.updateFieldAppearances(Font);
 
@@ -252,10 +246,10 @@ async function Formato_noadeudo() {
     });
     /* Cuadros dptos */
     Font = await pdfDoc.embedFont(MontserratBold);
-    var txtY = 465.2;
-    var recY = 463;
-    var recW = 169;
-    var recH = 12;
+    let txtY = 465.2;
+    let recY = 463;
+    let recW = 169;
+    let recH = 12;
     page.drawRectangle({
         x: 56,
         y: recY,
@@ -375,7 +369,6 @@ async function Formato_noadeudo() {
         size: 10,
     });
 
-
     /* Tabla */
     page.drawRectangle({
         x: 134,
@@ -392,8 +385,8 @@ async function Formato_noadeudo() {
     recH = 18;
     txtY = 287.1;
     recW = 182;
-    const lab = form.createTextField("lab"); //Se crea el txtField de laboratorio
-    lab.setText(vlaboratorio);
+
+    lab.setText(_lab);
     lab.setAlignment(TextAlignment.Center);
     lab.addToPage(page, {
         x: 136,
@@ -481,3 +474,4 @@ async function Formato_noadeudo() {
     const pdfBytes = await pdfDoc.save();
     download(pdfBytes, "Formato de No Adeudo.pdf", "application/pdf");
 }
+

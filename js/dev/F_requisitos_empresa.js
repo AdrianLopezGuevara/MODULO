@@ -5,25 +5,75 @@ import { autoFecha, vanio, vdia, vmes, nmes } from "./Fecha.js";
 import { Montserrat, MontserratBold } from "./Fonts.js";
 
 /* Variables */
-var form; //Inicializa el formulario que se ocupa para el llenado de campos
-var template; //Da la ruta de la plantilla del formato
-var pdfDoc; //Inicializa el documento pdf que se crea
-var dia; //Variable dia del formulario
-var mes; //Variables mes del formulario
-var anio; //Variable año del formulario
+/* Inlcudes */
+const template = fs.readFileSync("./pdf/Formato_2.pdf");
+const pdfDoc = await PDFDocument.load(template);
+pdfDoc.registerFontkit(fontkit);
+const pages = pdfDoc.getPages();
+const page = pages[0];
+const form = pdfDoc.getForm();
 
-export async function formato_Requisitos_Empresa() {
-  template = fs.readFileSync("./pdf/Formato.pdf");
+const dia = form.createTextField("dia");
+const mes = form.createTextField("mes");
+const anio = form.createTextField("anio");
 
-  pdfDoc = await PDFDocument.load(template);
-  pdfDoc.registerFontkit(fontkit);
+/* Function variables */
 
-  const pages = pdfDoc.getPages();
-  const page = pages[0];
+const noControl_1 = form.createTextField("noControl_1");
+const noControl_2 = form.createTextField("noControl_2");
+const noControl_3 = form.createTextField("noControl_3");
+const noControl_4 = form.createTextField("noControl_4");
+const noControl_5 = form.createTextField("noControl_5");
 
-  form = pdfDoc.getForm();
+const nombre_1 = form.createTextField("nombre_1");
+const nombre_2 = form.createTextField("nombre_2");
+const nombre_3 = form.createTextField("nombre_3");
+const nombre_4 = form.createTextField("nombre_4");
+const nombre_5 = form.createTextField("nombre_5");
 
-  var Font = await pdfDoc.embedFont(Montserrat);
+const carrera_1 = form.createTextField("carrera_1");
+const carrera_2 = form.createTextField("carrera_2");
+const carrera_3 = form.createTextField("carrera_3");
+const carrera_4 = form.createTextField("carrera_4");
+const carrera_5 = form.createTextField("carrera_5");
+
+const empresa = form.createTextField("empresa");
+const persona_Dirigida = form.createTextField("persona_Dirigida");
+
+const materia = form.createTextField("materia");
+const profesor = form.createTextField("profesor");
+
+const proyecto = form.createTextField("proyecto");
+const objetivo = form.createTextField("objetivo");
+const alcance = form.createTextField("alcance");
+const actividades = form.createTextField("actividades");
+
+export async function formato_Requisitos_Empresa(
+  _noControl_1,
+  _noControl_2,
+  _noControl_3,
+  _noControl_4,
+  _noControl_5,
+  _nombre_1,
+  _nombre_2,
+  _nombre_3,
+  _nombre_4,
+  _nombre_5,
+  _carrera_1,
+  _carrera_2,
+  _carrera_3,
+  _carrera_4,
+  _carrera_5,
+  _empresa,
+  _persona_Dirigida,
+  _materia,
+  _profesor,
+  _proyecto,
+  _objetivo,
+  _alcance,
+  _actividades
+) {
+  let Font = await pdfDoc.embedFont(Montserrat);
 
   page.drawText(
     "Solicitud de Carta de presentación, para realizar Proyecto Académico",
@@ -43,14 +93,14 @@ export async function formato_Requisitos_Empresa() {
 
   const yfecha = 627.7;
   const yForm = yfecha - 6.2;
-  var [X, Wmes] = autoFecha();
+  let [X, Wmes] = autoFecha();
   page.drawText("Querétaro, Qro.,    a", {
     x: X,
     y: yfecha,
     size: 10,
     font: Font,
   });
-  dia = form.createTextField("dia");
+
   dia.setText(vdia);
   dia.setAlignment(TextAlignment.Center);
   dia.addToPage(page, {
@@ -68,7 +118,7 @@ export async function formato_Requisitos_Empresa() {
     size: 10,
     font: Font,
   });
-  mes = form.createTextField("mes");
+
   mes.setText(vmes[nmes]);
   mes.setAlignment(TextAlignment.Center);
   mes.addToPage(page, {
@@ -86,7 +136,7 @@ export async function formato_Requisitos_Empresa() {
     size: 10,
     font: Font,
   });
-  anio = form.createTextField("anio");
+
   anio.setText(vanio);
   anio.setAlignment(TextAlignment.Center);
   anio.addToPage(page, {
@@ -109,13 +159,13 @@ export async function formato_Requisitos_Empresa() {
 
   /* Tabla */
   page.drawLine({
-    start: { x: 71, y: 607.8 },
+    start: { x: 71.4, y: 607.8 },
     end: { x: 555.5, y: 607.8 },
     thickness: 0.5,
   });
   page.drawLine({
-    start: { x: 71.1, y: 608 },
-    end: { x: 71.1, y: 577 },
+    start: { x: 71.4, y: 608 },
+    end: { x: 71.4, y: 577 },
     thickness: 0.5,
   });
   page.drawLine({
@@ -148,15 +198,16 @@ export async function formato_Requisitos_Empresa() {
     size: 12,
     font: Font,
   });
-  const noControlW = 91.7;
+  const noControlW = 91.6;
   const noControlH = 17.5;
-  var X = 71.3;
-  var noControl_1 = form.createTextField("noControl_1");
-  noControl_1.setText("19141166");
+  X = 71.3; /* Checar */
+
+  noControl_1.setText(_noControl_1);
   noControl_1.setAlignment(TextAlignment.Center);
   noControl_1.addToPage(page, {
     x: X,
     y: 560.5,
+    textColor: rgb(1, 0, 0),
     width: noControlW,
     height: noControlH,
     borderWidth: 0.5,
@@ -164,12 +215,12 @@ export async function formato_Requisitos_Empresa() {
   noControl_1.setFontSize(10);
   noControl_1.enableReadOnly();
 
-  var noControl_2 = form.createTextField("noControl_2");
-  noControl_2.setText("19141163");
+  noControl_2.setText(_noControl_2);
   noControl_2.setAlignment(TextAlignment.Center);
   noControl_2.addToPage(page, {
     x: X,
     y: 543,
+    textColor: rgb(1, 0, 0),
     width: noControlW,
     height: noControlH,
     borderWidth: 0.5,
@@ -177,12 +228,12 @@ export async function formato_Requisitos_Empresa() {
   noControl_2.setFontSize(10);
   noControl_2.enableReadOnly();
 
-  var noControl_3 = form.createTextField("noControl_3");
-  noControl_3.setText("19141119");
+  noControl_3.setText(_noControl_3);
   noControl_3.setAlignment(TextAlignment.Center);
   noControl_3.addToPage(page, {
     x: X,
     y: 525.5,
+    textColor: rgb(1, 0, 0),
     width: noControlW,
     height: noControlH,
     borderWidth: 0.5,
@@ -190,12 +241,12 @@ export async function formato_Requisitos_Empresa() {
   noControl_3.setFontSize(10);
   noControl_3.enableReadOnly();
 
-  var noControl_4 = form.createTextField("noControl_4");
-  noControl_4.setText("19141151");
+  noControl_4.setText(_noControl_4);
   noControl_4.setAlignment(TextAlignment.Center);
   noControl_4.addToPage(page, {
     x: X,
     y: 508,
+    textColor: rgb(1, 0, 0),
     width: noControlW,
     height: noControlH,
     borderWidth: 0.5,
@@ -203,12 +254,12 @@ export async function formato_Requisitos_Empresa() {
   noControl_4.setFontSize(10);
   noControl_4.enableReadOnly();
 
-  var noControl_5 = form.createTextField("noControl_5");
-  noControl_5.setText("19141124");
+  noControl_5.setText(_noControl_5);
   noControl_5.setAlignment(TextAlignment.Center);
   noControl_5.addToPage(page, {
     x: X,
     y: 490.5,
+    textColor: rgb(1, 0, 0),
     width: noControlW,
     height: noControlH,
     borderWidth: 0.5,
@@ -225,13 +276,14 @@ export async function formato_Requisitos_Empresa() {
   });
   const nombreW = 256.1;
   const nombreH = 17.5;
-  X = 163.2;
-  var nombre_1 = form.createTextField("nombre_1");
-  nombre_1.setText("ADRIAN LÓPEZ GUEVARA");
+  X = 163;
+
+  nombre_1.setText(_nombre_1);
   nombre_1.setAlignment(TextAlignment.Center);
   nombre_1.addToPage(page, {
     x: X,
     y: 560.5,
+    textColor: rgb(1, 0, 0),
     width: nombreW,
     height: nombreH,
     borderWidth: 0.5,
@@ -239,12 +291,12 @@ export async function formato_Requisitos_Empresa() {
   nombre_1.setFontSize(10);
   nombre_1.enableReadOnly();
 
-  var nombre_2 = form.createTextField("nombre_2");
-  nombre_2.setText("ANGEL ADRIAN LEON VALENCIA");
+  nombre_2.setText(_nombre_2);
   nombre_2.setAlignment(TextAlignment.Center);
   nombre_2.addToPage(page, {
     x: X,
     y: 543,
+    textColor: rgb(1, 0, 0),
     width: nombreW,
     height: nombreH,
     borderWidth: 0.5,
@@ -252,12 +304,12 @@ export async function formato_Requisitos_Empresa() {
   nombre_2.setFontSize(10);
   nombre_2.enableReadOnly();
 
-  var nombre_3 = form.createTextField("nombre_3");
-  nombre_3.setText("EMMANUEL ARIAS AGUILAR");
+  nombre_3.setText(_nombre_3);
   nombre_3.setAlignment(TextAlignment.Center);
   nombre_3.addToPage(page, {
     x: X,
     y: 525.5,
+    textColor: rgb(1, 0, 0),
     width: nombreW,
     height: nombreH,
     borderWidth: 0.5,
@@ -265,12 +317,12 @@ export async function formato_Requisitos_Empresa() {
   nombre_3.setFontSize(10);
   nombre_3.enableReadOnly();
 
-  var nombre_4 = form.createTextField("nombre_4");
-  nombre_4.setText("JOSE DE JESUS HERNANDEZ");
+  nombre_4.setText(_nombre_4);
   nombre_4.setAlignment(TextAlignment.Center);
   nombre_4.addToPage(page, {
     x: X,
     y: 508,
+    textColor: rgb(1, 0, 0),
     width: nombreW,
     height: nombreH,
     borderWidth: 0.5,
@@ -278,12 +330,12 @@ export async function formato_Requisitos_Empresa() {
   nombre_4.setFontSize(10);
   nombre_4.enableReadOnly();
 
-  var nombre_5 = form.createTextField("nombre_5");
-  nombre_5.setText("PIKI");
+  nombre_5.setText(_nombre_5);
   nombre_5.setAlignment(TextAlignment.Center);
   nombre_5.addToPage(page, {
     x: X,
     y: 490.5,
+    textColor: rgb(1, 0, 0),
     width: nombreW,
     height: nombreH,
     borderWidth: 0.5,
@@ -302,60 +354,61 @@ export async function formato_Requisitos_Empresa() {
   const carreraW = 136;
   const carreraH = 17.5;
   X = 419;
-  var carrera_1 = form.createTextField("carrera_1");
-  carrera_1.setText("INGENIERIA EN SISTEMAS COMPUTACIONALES");
+
+  carrera_1.setText(_carrera_1);
   carrera_1.setAlignment(TextAlignment.Center);
   carrera_1.addToPage(page, {
     x: X,
     y: 560.5,
+    textColor: rgb(1, 0, 0),
     width: carreraW,
     height: carreraH,
     borderWidth: 0.5,
   });
   carrera_1.enableReadOnly();
 
-  var carrera_2 = form.createTextField("carrera_2");
-  carrera_2.setText("INGENIERIA EN SISTEMAS COMPUTACIONALES");
+  carrera_2.setText(_carrera_2);
   carrera_2.setAlignment(TextAlignment.Center);
   carrera_2.addToPage(page, {
     x: X,
     y: 543,
+    textColor: rgb(1, 0, 0),
     width: carreraW,
     height: carreraH,
     borderWidth: 0.5,
   });
   carrera_2.enableReadOnly();
 
-  var carrera_3 = form.createTextField("carrera_3");
-  carrera_3.setText("INGENIERIA EN SISTEMAS COMPUTACIONALES");
+  carrera_3.setText(_carrera_3);
   carrera_3.setAlignment(TextAlignment.Center);
   carrera_3.addToPage(page, {
     x: X,
     y: 525.5,
+    textColor: rgb(1, 0, 0),
     width: carreraW,
     height: carreraH,
     borderWidth: 0.5,
   });
   carrera_3.enableReadOnly();
 
-  var carrera_4 = form.createTextField("carrera_4");
-  carrera_4.setText("INGENIERIA EN SISTEMAS COMPUTACIONALES");
+  carrera_4.setText(_carrera_4);
   carrera_4.setAlignment(TextAlignment.Center);
   carrera_4.addToPage(page, {
     x: X,
     y: 508,
+    textColor: rgb(1, 0, 0),
     width: carreraW,
     height: carreraH,
     borderWidth: 0.5,
   });
   carrera_4.enableReadOnly();
 
-  var carrera_5 = form.createTextField("carrera_5");
-  carrera_5.setText("INGENIERIA EN SISTEMAS COMPUTACIONALES");
+  carrera_5.setText(_carrera_5);
   carrera_5.setAlignment(TextAlignment.Center);
   carrera_5.addToPage(page, {
     x: X,
     y: 490.5,
+    textColor: rgb(1, 0, 0),
     width: carreraW,
     height: carreraH,
     borderWidth: 0.5,
@@ -391,6 +444,7 @@ export async function formato_Requisitos_Empresa() {
     end: { x: 220, y: 407.2 },
     thickness: 0.5,
   });
+
   /* Nombre de la empresa */
   Font = await pdfDoc.embedFont(Montserrat);
   page.drawText("Nombre de la", {
@@ -408,16 +462,18 @@ export async function formato_Requisitos_Empresa() {
 
   const empresaW = 335;
   const empresaH = 29.5;
-  var empresa = form.createTextField("empresa");
+
   empresa.setText("General Electric");
   empresa.setAlignment(TextAlignment.Center);
   empresa.addToPage(page, {
     x: 220,
     y: 437,
+    textColor: rgb(1, 0, 0),
     width: empresaW,
     height: empresaH,
     borderWidth: 0.5,
   });
+  empresa.setFontSize(12);
   empresa.enableReadOnly();
 
   /* Nombre de la persona*/
@@ -434,16 +490,17 @@ export async function formato_Requisitos_Empresa() {
     font: Font,
   });
 
-  var persona_Dirigida = form.createTextField("persona_Dirigida");
-  persona_Dirigida.setText("Adrian López Guevara");
+  persona_Dirigida.setText(_persona_Dirigida);
   persona_Dirigida.setAlignment(TextAlignment.Center);
   persona_Dirigida.addToPage(page, {
     x: 220,
     y: 407.3,
+    textColor: rgb(1, 0, 0),
     width: empresaW,
     height: empresaH,
     borderWidth: 0.5,
   });
+  persona_Dirigida.setFontSize(12);
   persona_Dirigida.enableReadOnly();
 
   Font = await pdfDoc.embedFont(MontserratBold);
@@ -483,16 +540,18 @@ export async function formato_Requisitos_Empresa() {
     size: 12,
     font: Font,
   });
-  var materia = form.createTextField("materia");
-  materia.setText("Taller de sistemas operativos");
+
+  materia.setText(_materia);
   materia.setAlignment(TextAlignment.Center);
   materia.addToPage(page, {
     x: 220,
     y: 357.6,
+    textColor: rgb(1, 0, 0),
     width: 335,
     height: 26,
     borderWidth: 0.5,
   });
+  materia.setFontSize(12);
   materia.enableReadOnly();
 
   /* Nonbre del profesor */
@@ -508,16 +567,18 @@ export async function formato_Requisitos_Empresa() {
     size: 12,
     font: Font,
   });
-  var profesor = form.createTextField("profesor");
-  profesor.setText("Consuelo Frias Farias");
+
+  profesor.setText(_profesor);
   profesor.setAlignment(TextAlignment.Center);
   profesor.addToPage(page, {
     x: 220,
     y: 328,
+    textColor: rgb(1, 0, 0),
     width: 335,
     height: 29.5,
     borderWidth: 0.5,
   });
+  profesor.setFontSize(12);
   profesor.enableReadOnly();
   Font = await pdfDoc.embedFont(MontserratBold);
   page.drawText("Datos del proyecto: ", {
@@ -572,14 +633,15 @@ export async function formato_Requisitos_Empresa() {
     size: 12,
     font: Font,
   });
-  var proyectoW = 400.5;
-  var proyectoH = 29.5;
-  var proyecto = form.createTextField("proyecto");
-  proyecto.setText("CorgiBooks");
+  let proyectoW = 400.5;
+  let proyectoH = 29.5;
+
+  proyecto.setText(_proyecto);
   proyecto.setAlignment(TextAlignment.Center);
   proyecto.addToPage(page, {
     x: 154.4,
     y: 274.5,
+    textColor: rgb(1, 0, 0),
     width: proyectoW,
     height: proyectoH,
     borderWidth: 0.5,
@@ -592,7 +654,7 @@ export async function formato_Requisitos_Empresa() {
     size: 12,
     font: Font,
   });
-  var objetivo = form.createTextField("objetivo");
+
   objetivo.setText(
     "El proyecto consiste en una aplicación web que permite gestionar archivos enfocados en un ámbito de las farmacias y medicamentos"
   );
@@ -601,6 +663,7 @@ export async function formato_Requisitos_Empresa() {
   objetivo.addToPage(page, {
     x: 154.4,
     y: 248.5,
+    textColor: rgb(1, 0, 0),
     width: proyectoW,
     height: proyectoH,
     borderWidth: 0.5,
@@ -613,12 +676,13 @@ export async function formato_Requisitos_Empresa() {
     size: 12,
     font: Font,
   });
-  var alcance = form.createTextField("alcance");
-  alcance.setText("Mucho XD");
+
+  alcance.setText(_alcance);
   alcance.setAlignment(TextAlignment.Center);
   alcance.addToPage(page, {
     x: 154.4,
     y: 222.5,
+    textColor: rgb(1, 0, 0),
     width: proyectoW,
     height: proyectoH,
     borderWidth: 0.5,
@@ -638,18 +702,18 @@ export async function formato_Requisitos_Empresa() {
     font: Font,
   });
   proyectoH = 64.5;
-  var actividades = form.createTextField("actividades");
-  actividades.setText(
-    "No se que poner aqui aprte ya tengo sueño así que le dejo eso al Adrian del mañana XD"
-  );
+
+  actividades.setText(_actividades);
   actividades.setAlignment(TextAlignment.Center);
   actividades.addToPage(page, {
     x: 154.4,
     y: 158,
+    textColor: rgb(1, 0, 0),
     width: proyectoW,
     height: proyectoH,
     borderWidth: 0.5,
   });
+  actividades.setFontSize(12);
   actividades.enableReadOnly();
 
   Font = await pdfDoc.embedFont(Montserrat);
@@ -673,7 +737,48 @@ export async function formato_Requisitos_Empresa() {
     font: Font,
   });
 
+  
+  if (carrera_1.getText().length < 25) {
+    carrera_1.setFontSize(10);
+  }
+  if (carrera_2.getText().length < 25) {
+    carrera_2.setFontSize(10);
+  }
+  if (carrera_3.getText().length < 25) {
+    carrera_3.setFontSize(10);
+  }
+  if (carrera_4.getText().length < 25) {
+    carrera_4.setFontSize(10);
+  }
+  if (carrera_5.getText().length < 25) {
+    carrera_5.setFontSize(10);
+  }
+
   const pdfBytes = await pdfDoc.save();
   fs.writeFileSync("./output/Formato_REQUISITOS_EMPRESA.pdf", pdfBytes);
 }
-formato_Requisitos_Empresa();
+formato_Requisitos_Empresa(
+  "19141166",
+  "19141163",
+  "19141119",
+  "19141151",
+  "19141124",
+  "Adrian López Guevara",
+  "Angel Adrian León Valencia",
+  "Emmanuel Aguilar Arias",
+  "Jose de Jesus Hernandez",
+  "Luis Manuel Benitez Aguado",
+  "Ingenieria en Materiales",
+  "Ingenieria en Sistemas computacionales",
+  "Ingenieria en Sistemas computacionales",
+  "Ingenieria en Sistemas computacionales",
+  "Ingenieria en Sistemas computacionales",
+  "General Electric Comparany",
+  "Jorge Sepulveda",
+  "Taller de Sistemas Operativos",
+  "Consuelo Frias Farias",
+  "Sistema experto de medicamentos (CorgiSoftware)",
+  "Consiste en una aplicación web que permite gestionar medicamentos",
+  "El alcance que se pretende es poder llegar a ser una herramienta indispensable para empresas del sector farmaceutico",
+  "Implementar el modelo MVC en este proyecto"
+);
