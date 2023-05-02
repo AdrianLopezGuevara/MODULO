@@ -33,4 +33,4 @@ function obtener_Alumnos()
         echo json_encode("Alumnos no encontrado");
     }
 }
-obtener_Alumnos();
+/* obtener_Alumnos(); */

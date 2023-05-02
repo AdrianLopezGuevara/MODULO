@@ -8,7 +8,7 @@ form.addEventListener('submit', function (e) {
     e.preventDefault()
     const lab = document.querySelector('[name="lab"]:checked').value;
     let data = new FormData(form);
-    fetch('../php/functions.php', {
+    fetch('../php/form1.php', {
         method: 'POST',
         body: data
     })
@@ -22,7 +22,7 @@ form.addEventListener('submit', function (e) {
 form2.addEventListener('submit', function (e) {
     e.preventDefault()
     let data = new FormData(form2);
-    fetch('../php/functions.php', {
+    fetch('../php/form2.php', {
         method: 'POST',
         body: data
     })

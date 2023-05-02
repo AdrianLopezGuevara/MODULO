@@ -737,7 +737,6 @@ export async function formato_Requisitos_Empresa(
     font: Font,
   });
 
-  
   if (carrera_1.getText().length < 25) {
     carrera_1.setFontSize(10);
   }

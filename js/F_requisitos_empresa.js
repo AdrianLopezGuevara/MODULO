@@ -736,6 +736,22 @@ export async function formato_Requisitos_Empresa(
         font: Font,
     });
 
+    if (carrera_1.getText().length < 25) {
+        carrera_1.setFontSize(10);
+    }
+    if (carrera_2.getText().length < 25) {
+        carrera_2.setFontSize(10);
+    }
+    if (carrera_3.getText().length < 25) {
+        carrera_3.setFontSize(10);
+    }
+    if (carrera_4.getText().length < 25) {
+        carrera_4.setFontSize(10);
+    }
+    if (carrera_5.getText().length < 25) {
+        carrera_5.setFontSize(10);
+    }
+
     const pdfBytes = await pdfDoc.save();
     download(pdfBytes, "Formato de Requisito de Empresa.pdf", "application/pdf");
 }
