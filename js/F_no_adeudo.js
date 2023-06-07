@@ -1,4 +1,4 @@
-const { PDFDocument, TextAlignment } = PDFLib
+const { PDFDocument, TextAlignment, rgb } = PDFLib
 import { autoFecha, vanio, vdia, vmes, nmes } from "./dev/Fecha.js";
 import { Montserrat, MontserratBold } from "./Fonts.js";
 
@@ -136,6 +136,7 @@ export async function formato_NO_ADEUDO(_noControl, _nombre, _semestre, _carrera
     noControl.addToPage(page, {
         x: 133.9,
         y: 547.5,
+        textColor: rgb(1, 0, 0),
         width: 67,
         height: 19.7,
     });
@@ -165,6 +166,7 @@ export async function formato_NO_ADEUDO(_noControl, _nombre, _semestre, _carrera
         y: 547.5,
         width: 320,
         height: 19.7,
+        textColor: rgb(1, 0, 0),
     });
     nombre.setFontSize(10);
     nombre.enableReadOnly();
@@ -192,6 +194,7 @@ export async function formato_NO_ADEUDO(_noControl, _nombre, _semestre, _carrera
         y: 523.5,
         width: 39,
         height: 21,
+        textColor: rgb(1, 0, 0),
     });
     semestre.setFontSize(10);
     semestre.enableReadOnly();
@@ -219,6 +222,7 @@ export async function formato_NO_ADEUDO(_noControl, _nombre, _semestre, _carrera
         y: 523.5,
         width: 320,
         height: 21,
+        textColor: rgb(1, 0, 0),
     });
     carrera.setFontSize(10);
     carrera.enableReadOnly();

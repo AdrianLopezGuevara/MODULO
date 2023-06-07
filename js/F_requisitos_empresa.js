@@ -4,7 +4,7 @@ import { Montserrat, MontserratBold } from "./Fonts.js";
 
 /* Variables */
 /* Inlcudes */
-const templateURL = "./pdf/Formato.pdf";
+const templateURL = "./pdf/Formato_2.pdf";
 const template = await fetch(templateURL).then(res => res.arrayBuffer())
 const pdfDoc = await PDFDocument.load(template);
 pdfDoc.registerFontkit(fontkit);
@@ -462,7 +462,7 @@ export async function formato_Requisitos_Empresa(
     const empresaW = 335;
     const empresaH = 29.5;
 
-    empresa.setText("General Electric");
+    empresa.setText(_empresa);
     empresa.setAlignment(TextAlignment.Center);
     empresa.addToPage(page, {
         x: 220,
@@ -645,6 +645,7 @@ export async function formato_Requisitos_Empresa(
         height: proyectoH,
         borderWidth: 0.5,
     });
+    proyecto.setFontSize(12);
     proyecto.enableReadOnly();
     /* Objetivo */
     page.drawText("Objetivo:", {

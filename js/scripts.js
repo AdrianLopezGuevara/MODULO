@@ -15,7 +15,7 @@ form.addEventListener('submit', function (e) {
         .then(res => res.json())
         .then(alumno => {
             const nombre = alumno['nombre'] + " " + alumno['apellidoPat'] + " " + alumno['apellidoMat'];
-            formato_NO_ADEUDO(alumno['noControl'], nombre, alumno['semestre'], alumno['carrera'], lab)
+            formato_NO_ADEUDO(alumno['noControl'], nombre, alumno['semestre'], alumno['carrera'], lab);
         })
 })
 
@@ -35,17 +35,17 @@ form2.addEventListener('submit', function (e) {
                 noControl[i] = alumno[i][0];
                 nombre[i] = alumno[i][1] + " " + alumno[i][2] + " " + alumno[i][3];
                 carrera[i] = [alumno[i][5]];
-                /* console.log(noControl[i])
-                console.log(nombre[i])
-                console.log(carrera[i]) */
             }
 
             formato_Requisitos_Empresa(
                 noControl[0], noControl[1], noControl[2], noControl[3], noControl[4],
                 nombre[0], nombre[1], nombre[2], nombre[3], nombre[4],
                 carrera[0].toString(), carrera[1].toString(), carrera[2].toString(), carrera[3].toString(), carrera[4].toString(),
-                "Huawei", "Rick Sanchez",
-                "Sistemas Operativos", "Tony Stark",
-                "Servicio Social", "Liberar mi servicio porfa XD", "Mucho alcance", "Jugar overwatch ");
+                "General Electric Company", "Jorge Sepulveda",
+                "Taller de Sistemas Operativos", "Consuelo Frias Farias",
+                "Sistema experto de medicamentos (CorgiSoftware)",
+                "Consiste en una aplicación web que permite gestionar medicamentos",
+                "El alcance que se pretende es poder llegar a ser una herramienta indispensable para empresas del sector farmaceutico",
+                "Implementar el modelo MVC en este proyecto");
         })
 })

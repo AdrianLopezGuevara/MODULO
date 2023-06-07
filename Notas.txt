@@ -1,3 +1,4 @@
 -Los campos como nombre o numero de control (Datos de alumno) resaltarlos de color y negritas
 -Proponer estilos de formatos 
 -Hacer la función de subir archivo para cambiar formatos
+MPDF
